@@ -18,17 +18,17 @@
       dest: "/home/ubuntu"
      with_items:
        - "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-       - "https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip"
+       - "https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip"
    - name: Install chrome browser
      apt:
       deb: /home/ubuntu/google-chrome-stable_current_amd64.deb
    - name: Run update
      apt:
       update_cache: true
-   - name: move chromedriver
-     command: mv chromedriver /home/ubuntu
    - name: unzip chromedriver
      command: unzip /home/ubuntu/chromedriver_linux64.zip
+   - name: move chromedriver
+     command: mv chromedriver /home/ubuntu
    - name: Start docker services
      service: name=docker state=started
 
